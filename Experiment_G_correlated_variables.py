@@ -17,3 +17,11 @@ data = {
 I = data["M_B"]/12 * (data["a"]**2 + data["b"]**2) * (data["T_P"]/data["T_B"])**2 + data["M_P"] * data["h"]**2
 g = 4*np.pi**2 * I / (data["M_P"] * data["h"] * data["T"]**2)
 print(g) #g=9.87+/-0.26
+
+precision_in_g = g.std_dev/g.nominal_value
+print(f"Precision in g: {precision_in_g}")
+
+if precision_in_g < (1/1000):
+    print("Desired level of precision met")
+else:
+    print("Desired level of precision not met")
